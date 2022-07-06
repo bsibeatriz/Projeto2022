@@ -9,9 +9,13 @@
     "test:e2e:ci": "start-server-and-test preview http://127.0.0.1:4173/ 'cypress run --e2e'",
     "test:unit": "cypress open --component",
     "test:unit:ci": "cypress run --component --quiet --reporter spec",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "db:dev": "json-server-relationship --watch db/db.json --port 4000"
   },
   "dependencies": {
+    "axios": "^0.27.2",
+    "json-server": "^0.17.0",
+    "json-server-relationship": "^0.14.5",
     "vue": "^3.2.37",
     "vue-router": "^4.0.16"
   },

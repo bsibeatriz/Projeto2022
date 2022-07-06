@@ -1,0 +1,114 @@
+{
+    "categoria": [
+      {
+        "id": 1,
+        "descricao": "Horror"
+      },
+      {
+        "id": 2,
+        "descricao": "Ficção Histórica"
+      },
+      {
+        "id": 3,
+        "descricao": "Classico"
+      }
+    ],
+    "editora": [
+      {
+        "id": 1,
+        "descricao": "TodaVia"
+      },
+      {
+        "id": 2,
+        "descricao": "Cia das Letras"
+      },
+      {
+        "id": 3,
+        "descricao": "Intrinseca"
+      },
+      {
+        "id": 4,
+        "descricao": "DarkSide"
+      }
+    ],
+    "autor": [
+      {
+        "id": 1,
+        "descricao": "Fiódor Dostoiévski"
+      },
+      {
+        "id": 2,
+        "descricao": "George Orwell"
+      },
+      {
+        "id": 3,
+        "descricao": "Min Jin Lee"
+      },
+      {
+        "id": 4,
+        "descricao": "Mary Shelley"
+      }
+    ],
+    "livros": [
+      {
+        "id": 1,
+        "name": "Crime e Castigo",
+        "Idcategoria": 3,
+        "Ideditora": 1,
+        "Idautor": 1
+      },
+      {
+        "id": 2,
+        "name": "1984",
+        "Idcategoria": 3,
+        "Ideditora": 2,
+        "Idautor": 2
+      },
+      {
+        "id": 3,
+        "name": "Pachinko",
+        "Idcategoria": 2,
+        "Ideditora": 3,
+        "Idautor": 3
+      },
+      {
+        "id": 4,
+        "name": "Frankenstein",
+        "Idcategoria": 1,
+        "Ideditora": 4,
+        "Idautor": 4
+      }
+    ],
+    "usuario": [
+      {
+        "id": 1,
+        "name": "Beatriz",
+        "email": "beatriz@mail.com",
+        "senha": "beatriz"
+      },
+      {
+        "id": 2,
+        "name": "Thamires",
+        "email": "thamires@mail.com",
+        "senha": "thamires"
+      }
+    ],
+    "carrinho": [
+      {
+        "idusuario": 1,
+        "idlivro": 1
+      },
+      {
+        "idusuario": 2,
+        "idlivro": 2
+      },
+      {
+        "idusuario": 1,
+        "idlivro": 3
+      },
+      {
+        "idusuario": 2,
+        "idlivro": 4
+      }
+    ]
+  }
