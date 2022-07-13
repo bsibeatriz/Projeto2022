@@ -1,21 +1,38 @@
 <script>
+import { mapState, mapStores, mapActions } from "pinia";
+import { useLivrosStore } from "@/stores/livros.js";
+import { useCarrinhoStore } from "@/stores/carrinho.js";
 import axios from 'axios'
 export default {
  
   data() {
     return {
       livros: [],
-   
+      carrinho:[],
     };
   },
   async mounted() {
       try {
         const {data} = await axios.get("http://localhost:4001/livros");
         this.livros=data;
+        const {data_carrinho} = await axios.get("http://localhost:4001/carrinho");
+        this.carrinho=data_carrinho;
       }catch(e){
         console.log(e);
       }
-    }
+    },
+  methods:{
+    async addCarrinho(livro_id) {
+      try {
+        const { data } = await axios.post( "http://localhost:4001/carrinho", livro_id);
+        this.carrinho.push(data);
+        return Promise.resolve("Categoria adicionada com sucesso!");
+      } catch (e) {
+        console.error(e);
+        return Promise.reject(e);
+      }
+    },
+  }
 };
 </script>
 <template>
@@ -33,7 +50,7 @@ export default {
           <p>
             {{livro.editora}}
           </p>
-          <button  class="btn">Adicionar ao Carrinho</button>
+          <button @click="addCarrinho(livro.id)" class="btn">Adicionar ao Carrinho</button>
           
           <button class="btn">Apagar Livros</button>
         </div>

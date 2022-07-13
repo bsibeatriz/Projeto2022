@@ -1,37 +1,41 @@
 <script>
+import { mapState, mapStores, mapActions } from "pinia";
+import { useLivrosStore } from "@/stores/livros.js";
+import { useCarrinhoStore } from "@/stores/carrinho.js";
 import axios from 'axios'
+
+
+
 export default {
- 
   data() {
-    return {
-      carrinho: [],
-   
-    };
+    return {};
+  },
+  computed: {
+    ...mapStores(useCarrinhoStore),
+    ...mapState(useCarrinhoStore, ["carrinho"]),
+  },
+  methods: {
+    ...mapActions(useCarrinhoStore, ["getAllCarrinho", "deleteCarrinho",]),
+    
+    async deleteItem(carrinho_id) {
+      try {
+        await this.deleteCarrinho(carrinho_id);
+        alert("Item excluído com sucesso.");
+      } catch (e) {
+        alert(e);
+      }
+    },
   },
   async mounted() {
-      try {
-        const {data} = await axios.get("http://localhost:4001/carrinho?expand=livros");
-        this.carrinho=data;
-      }catch(e){
-        console.log(e);
-      }
-    },
-
-    methods:{
-      async deleteLivros(livros_id) {
-      try {
-        await axios.delete(`http://localhost:4001/carrinho/${livros_id}`);
-        const index = this.carrinho.findIndex(
-          (livros) => livros.id === livros_id
-        );
-        this.livros.splice(index, 1);
-        return Promise.resolve();
-      } catch (e) {
-        return Promise.reject("Erro ao excluir");
-      }
-    },
+    try {
+      await this.getAllCarrinho();
+    } catch (e) {
+      alert(e);
     }
+  },
+
 };
+
 </script>
 <template>
 
@@ -48,7 +52,7 @@ export default {
           <p>
             {{livro.livros.editora}}
           </p>
-          <button @click="deleteLivros(livro.id)" class="btn">Remover do Carrinho</button>
+          <button @click="deleteItem(livro.id)" class="btn">Remover do Carrinho</button>
         </div>
       </div>
     </div>

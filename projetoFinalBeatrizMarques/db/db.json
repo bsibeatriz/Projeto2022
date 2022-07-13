@@ -35,6 +35,12 @@
       "name": "bb",
       "autor": "c",
       "editora": "ss"
+    },
+    {
+      "id": 7,
+      "name": "tal",
+      "autor": "tal",
+      "editora": "tal"
     }
   ],
   "carrinho": [
@@ -45,6 +51,10 @@
     {
       "id": 4,
       "livrosId": 4
+    },
+    {
+      "id": 1,
+      "livrosId": 2
     }
   ]
 }
