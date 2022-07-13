@@ -33,9 +33,9 @@ export default {
           <p>
             {{livro.editora}}
           </p>
-          <a href="#" class="btn">Adicionar ao Carrinho</a>
+          <button  class="btn">Adicionar ao Carrinho</button>
           
-          <a href="#" class="btn">Apagar Livros</a>
+          <button class="btn">Apagar Livros</button>
         </div>
       </div>
     </div>

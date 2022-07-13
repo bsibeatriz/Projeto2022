@@ -15,6 +15,21 @@ export default {
       }catch(e){
         console.log(e);
       }
+    },
+
+    methods:{
+      async deleteLivros(livros_id) {
+      try {
+        await axios.delete(`http://localhost:4001/carrinho/${livros_id}`);
+        const index = this.carrinho.findIndex(
+          (livros) => livros.id === livros_id
+        );
+        this.livros.splice(index, 1);
+        return Promise.resolve();
+      } catch (e) {
+        return Promise.reject("Erro ao excluir");
+      }
+    },
     }
 };
 </script>
@@ -33,7 +48,7 @@ export default {
           <p>
             {{livro.livros.editora}}
           </p>
-          <a href="#" class="btn">Remover do Carrinho</a>
+          <button @click="deleteLivros(livro.id)" class="btn">Remover do Carrinho</button>
         </div>
       </div>
     </div>

@@ -18,11 +18,11 @@ export const useLivrosStore = defineStore({
           return Promise.reject(e.response.statusText);
         return Promise.reject("Erro desconhecido ao consultar 'Livros'");
       }
-    }
-  },
-    async addLivros(livros) {
+    },
+ 
+    async addLivros(livro) {
       try {
-        const { data } = await axios.post( "http://localhost:4001/livros", livros);
+        const { data } = await axios.post( "http://localhost:4001/livros", livro);
         this.livros.push(data);
         return Promise.resolve("Categoria adicionada com sucesso!");
       } catch (e) {
@@ -42,6 +42,6 @@ export const useLivrosStore = defineStore({
         return Promise.reject("Erro ao excluir");
       }
     },
-  
+  },
 });
 

@@ -1,6 +1,6 @@
 <script>
 import { mapState, mapStores, mapActions } from "pinia";
-import { useLivrosStore } from "@/stores/livros";
+import { useLivrosStore } from "@/stores/livros.js";
 
 
 export default {
@@ -19,29 +19,16 @@ export default {
     ...mapState(useLivrosStore, ["livros"]),
   },
   methods: {
-    ...mapActions(useLivrosStore, [
-      "getAllLivros",
-      "addLivros",
-      "deleteLivros",
-    ]),
+    ...mapActions(useLivrosStore, ["getAllLivros", "addLivros",]),
     async save() {
       try {
         const msg = await this.addLivros(this.currentLivros);
         alert(msg);
         this.currentLivros = {};
       } catch (e) {
-        alert("Ooops! Algo de errado!");
-      }
-    },
-    async deleteItem(livros_id) {
-      try {
-        await this.deleteLivros(livros_id);
-        alert("Item excluído com sucesso.");
-      } catch (e) {
         alert(e);
       }
     },
-    
   },
   async mounted() {
     try {
@@ -50,17 +37,18 @@ export default {
       alert(e);
     }
   },
+
 };
 </script>
 
 <template>
   <form class="cadastro-form">
     <label>Livro</label> <br>
-    <input type="text" v-model="currentLivros.name"/> <br>
+    <input type="text" v-model="currentLivros.name" /> <br>
     <label>Autor</label> <br>
-    <input type="text" v-model="currentLivros.autor"/> <br>
+    <input type="text" v-model="currentLivros.autor" /> <br>
     <label>Editora</label> <br>
-    <input type="text" v-model="currentLivros.editora"/>
+    <input type="text" v-model="currentLivros.editora" />
     <br>
     <button @click="save">Cadastrar</button>
   </form>
@@ -76,6 +64,7 @@ export default {
   padding-left: 20px;
   font-size: 1.2em;
 }
+
 .cadastro-form label {
   width: 75%;
   height: 40px;
@@ -83,6 +72,7 @@ export default {
   font-size: 1.2em;
   text-align: center;
 }
+
 .cadastro-form button {
   height: 35px;
   width: 20%;
