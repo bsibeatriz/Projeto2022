@@ -5,24 +5,21 @@ export default {
   data() {
     return {
       livros: [],
+   
     };
   },
   async mounted() {
       try {
-        const {data} = await axios.get("http://localhost:4000/livros");
+        const {data} = await axios.get("http://localhost:4001/livros");
         this.livros=data;
       }catch(e){
         console.log(e);
       }
     }
 };
-</script><template>
-  <header>
-    <div class="incial">
-      <div class="menu">Livros</div>
-      <div class="menu2">Carrinho</div>
-    </div>
-  </header>
+</script>
+<template>
+
   <body>
     <div class="row" >
       <div class="card" v-for="livro of livros" :key="livro.id">
@@ -31,26 +28,20 @@ export default {
         </div>
         <div class="card-body">
           <p>
-            {{livro.name}}
+            {{livro.autor}}
           </p>
-          <a href="#" class="btn">Adcionar ao Carrinho</a>
+          <p>
+            {{livro.editora}}
+          </p>
+          <a href="#" class="btn">Adicionar ao Carrinho</a>
+          
+          <a href="#" class="btn">Apagar Livros</a>
         </div>
       </div>
     </div>
   </body>
 </template>
 <style>
-.menu{
-  width:50%
-}
-.menu2{
-  width:50%;
-  text-align: end;;
-}
-.inicial{
-  display:flex;
-  flex-flow: row wrap;
-}
 
 body {
   background: #fefefe;

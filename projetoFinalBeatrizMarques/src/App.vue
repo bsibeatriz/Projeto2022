@@ -1,9 +1,43 @@
 <script>
-import TelaInicial from "@/components/TelaInicial.vue"
+import { RouterLink, RouterView } from "vue-router";
 
-export default { components: { TelaInicial } };
+
 </script>
 
 <template>
-  <TelaInicial />
+  <header>
+    <RouterLink to="/">Livros </RouterLink> |
+    <RouterLink to="/adicionar">Adicionar Livros </RouterLink> |
+    <RouterLink to="/carrinho">Carrinho </RouterLink> 
+  </header>
+  <main>
+    <RouterView />
+  </main>
+  
+  
 </template>
+<style>
+header {
+  height: 10%;
+  background-color: white;
+  color: black;
+  font-size: 1.5em;
+  display: flex;
+  text-decoration:none;
+}
+a{
+  text-decoration: none;
+  text-align: center;
+}
+.menu{
+  width:50%;
+}
+.menu2{
+  width:50%;
+  text-align:end;
+}
+.inicial{
+  display:flex;
+  flex-flow: row wrap;
+}
+</style>

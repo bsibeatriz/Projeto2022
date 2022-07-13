@@ -5,11 +5,24 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "inicio",
+      name: "livros",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import("../components/telaInicial.vue"),
+      component: () => import("../components/TelaInicial.vue"),
+    },
+    {
+      path: "/adicionar",
+      name: "adicionarlivros",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../components/AdicionarLivros.vue"),
+    },
+    {
+      path: "/carrinho",
+      name: "product",
+      component: () => import("../components/CarrinhoVenda.vue"),
     },
   ],
 });
