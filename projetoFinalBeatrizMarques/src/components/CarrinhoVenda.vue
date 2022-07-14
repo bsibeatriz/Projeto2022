@@ -1,27 +1,16 @@
 <script>
 import { mapState, mapStores, mapActions } from "pinia";
-import { useLivrosStore } from "@/stores/livros.js";
 import { useCarrinhoStore } from "@/stores/carrinho.js";
-import axios from 'axios'
 
 
 
 export default {
   data() {
-    return {
- /*     currentLivros: {
-        id: "",
-        name: "",
-        autor: "",
-        editora: "",
-      },*/
-     // carrinho:[],
-    };
+    return {};
   },
   computed: {
     ...mapStores(useCarrinhoStore),
     ...mapState(useCarrinhoStore, ["carrinho"]),
-  //  ...mapState(useLivrosStore, ["livros"]),
   },
   methods: {
     ...mapActions(useCarrinhoStore, ["getAllCarrinho", "deleteCarrinho",]),

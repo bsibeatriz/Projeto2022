@@ -26,27 +26,39 @@
     },
     {
       "id": 5,
-      "name": "a",
+      "name": "livro 5",
       "autor": "a",
       "editora": "a"
     },
     {
       "id": 6,
-      "name": "bb",
+      "name": "livro 6",
       "autor": "c",
       "editora": "ss"
     },
     {
       "id": 7,
-      "name": "tal",
+      "name": "livro 7",
       "autor": "tal",
       "editora": "tal"
     },
     {
       "id": 8,
-      "name": "ferf",
+      "name": "livro 8",
       "autor": "ef",
       "editora": "gt"
+    },
+    {
+      "id": 9,
+      "name": "livro 9",
+      "autor": "gn",
+      "editora": "gfn"
+    },
+    {
+      "id": 10,
+      "name": "livro teste ",
+      "autor": "teste",
+      "editora": "teste"
     }
   ],
   "carrinho": [
@@ -63,8 +75,12 @@
       "livrosId": 2
     },
     {
-      "id": 1,
-      "livrosId": 4
+      "livrosId": 8,
+      "id": 5
+    },
+    {
+      "id": 6,
+      "livrosId": 10
     }
   ]
 }
