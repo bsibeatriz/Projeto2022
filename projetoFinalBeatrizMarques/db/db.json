@@ -59,6 +59,12 @@
       "name": "livro teste ",
       "autor": "teste",
       "editora": "teste"
+    },
+    {
+      "id": 11,
+      "name": "livos",
+      "autor": "autor",
+      "editora": "editora"
     }
   ],
   "carrinho": [

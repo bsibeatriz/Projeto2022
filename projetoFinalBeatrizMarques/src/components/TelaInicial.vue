@@ -2,16 +2,15 @@
 import { mapState, mapStores, mapActions } from "pinia";
 import { useLivrosStore } from "@/stores/livros.js";
 import { useCarrinhoStore } from "@/stores/carrinho.js";
-import axios from 'axios'
+
 
 export default {
-
   data() {
     return {
       adiciona_carrinho: {
-        id: "", livrosId: "",
+        id: "",
+        livrosId: "",
       },
-      
     };
   },
   computed: {
@@ -20,12 +19,12 @@ export default {
     ...mapState(useCarrinhoStore, ["carrinho"]),
   },
   methods: {
-    ...mapActions(useLivrosStore, ["getAllLivros",]),
-    ...mapActions(useCarrinhoStore, ["addCarrinho",]),
+    ...mapActions(useLivrosStore, ["getAllLivros"]),
+    ...mapActions(useCarrinhoStore, ["addCarrinho"]),
 
     async adicionar_carrinho(livro_id) {
       try {
-        this.adiciona_carrinho.livrosId=livro_id;
+        this.adiciona_carrinho.livrosId = livro_id;
         const msg = await this.addCarrinho(this.adiciona_carrinho);
         alert(msg);
         this.currentLivros = {};
@@ -41,12 +40,9 @@ export default {
       alert(e);
     }
   },
-
-
 };
 </script>
 <template>
-
   <body>
     <div class="row">
       <div class="card" v-for="livro of livros" :key="livro.id">
@@ -60,8 +56,9 @@ export default {
           <p>
             {{ livro.editora }}
           </p>
-          <button @click="adicionar_carrinho(livro.id)" class="btn">Adicionar ao Carrinho</button>
-
+          <button @click="adicionar_carrinho(livro.id)" class="btn">
+            Adicionar ao Carrinho
+          </button>
         </div>
       </div>
     </div>

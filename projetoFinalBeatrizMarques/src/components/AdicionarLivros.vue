@@ -1,7 +1,7 @@
 <script>
 import { mapState, mapStores, mapActions } from "pinia";
 import { useLivrosStore } from "@/stores/livros.js";
-
+// import axios from "axios";
 
 export default {
   data() {
@@ -11,7 +11,7 @@ export default {
         name: "",
         autor: "",
         editora: "",
-      }
+      },
     };
   },
   computed: {
@@ -19,7 +19,7 @@ export default {
     ...mapState(useLivrosStore, ["livros"]),
   },
   methods: {
-    ...mapActions(useLivrosStore, ["getAllLivros", "addLivros",]),
+    ...mapActions(useLivrosStore, ["getAllLivros", "addLivros"]),
     async save() {
       try {
         const msg = await this.addLivros(this.currentLivros);
@@ -29,6 +29,26 @@ export default {
         alert(e);
       }
     },
+    async delete() {
+      console.log("re");
+      // try {
+      //   await axios.delete(`http://localhost:4001/livros/${livros_id}`);
+      //   const index = this.livros.findIndex(
+      //     (livros) => livros.id === livros_id
+      //   );
+      //   this.livros.splice(index, 1);
+      //   return Promise.resolve();
+      // } catch (e) {
+      //   return Promise.reject("Erro ao excluir");
+      // }
+      // try {
+      //   const msg = await this.deleteLivros(livros_id);
+      //   alert(msg);
+      //   this.currentLivros = {};
+      // } catch (e) {
+      //   alert(e);
+      // }
+    },
   },
   async mounted() {
     try {
@@ -37,22 +57,37 @@ export default {
       alert(e);
     }
   },
-
 };
 </script>
 
 <template>
   <form class="cadastro-form">
-    <label>Livro</label> <br>
-    <input type="text" v-model="currentLivros.name" /> <br>
-    <label>Autor</label> <br>
-    <input type="text" v-model="currentLivros.autor" /> <br>
-    <label>Editora</label> <br>
+    <label>Livro</label> <br />
+    <input type="text" v-model="currentLivros.name" /> <br />
+    <label>Autor</label> <br />
+    <input type="text" v-model="currentLivros.autor" /> <br />
+    <label>Editora</label> <br />
     <input type="text" v-model="currentLivros.editora" />
-    <br>
+    <br />
     <button @click="save">Cadastrar</button>
   </form>
-
+  <div class="row">
+    <div class="card" v-for="livro of livros" :key="livro.id">
+      <div class="card-header">
+        <h1>{{ livro.name }}</h1>
+      </div>
+      <div class="card-body">
+        <p>
+          {{ livro.autor }}
+        </p>
+        <p>
+          {{ livro.editora }}
+        </p>
+        <button >Ecluir Livro</button>
+        <!-- <button @click="delete livro.id" class="btn">Excluir Livro</button> -->
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
