@@ -37,7 +37,7 @@ export const useLivrosStore = defineStore({
           (livros) => livros.id === livros_id
         );
         this.livros.splice(index, 1);
-        return Promise.resolve();
+        return Promise.resolve("livro excluido");
       } catch (e) {
         return Promise.reject("Erro ao excluir");
       }

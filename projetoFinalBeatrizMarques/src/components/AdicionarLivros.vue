@@ -19,7 +19,7 @@ export default {
     ...mapState(useLivrosStore, ["livros"]),
   },
   methods: {
-    ...mapActions(useLivrosStore, ["getAllLivros", "addLivros"]),
+    ...mapActions(useLivrosStore, ["getAllLivros", "addLivros", "deleteLivros"]),
     async save() {
       try {
         const msg = await this.addLivros(this.currentLivros);
@@ -29,8 +29,11 @@ export default {
         alert(e);
       }
     },
-    async delete() {
-      console.log("re");
+  /*  async apagar(){
+      console.log("aaa");
+    }*/
+    async remover(livros_id) {
+   //   console.log("re");
       // try {
       //   await axios.delete(`http://localhost:4001/livros/${livros_id}`);
       //   const index = this.livros.findIndex(
@@ -41,13 +44,13 @@ export default {
       // } catch (e) {
       //   return Promise.reject("Erro ao excluir");
       // }
-      // try {
-      //   const msg = await this.deleteLivros(livros_id);
-      //   alert(msg);
-      //   this.currentLivros = {};
-      // } catch (e) {
-      //   alert(e);
-      // }
+       try {
+         const msg = await this.deleteLivros(livros_id);
+         alert(msg);
+         this.currentLivros = {};
+       } catch (e) {
+         alert(e);
+       }
     },
   },
   async mounted() {
@@ -83,7 +86,7 @@ export default {
         <p>
           {{ livro.editora }}
         </p>
-        <button >Ecluir Livro</button>
+        <button @click="remover(livro.id)" >Ecluir Livro</button>
         <!-- <button @click="delete livro.id" class="btn">Excluir Livro</button> -->
       </div>
     </div>

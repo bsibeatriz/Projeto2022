@@ -41,30 +41,6 @@
       "name": "livro 7",
       "autor": "tal",
       "editora": "tal"
-    },
-    {
-      "id": 8,
-      "name": "livro 8",
-      "autor": "ef",
-      "editora": "gt"
-    },
-    {
-      "id": 9,
-      "name": "livro 9",
-      "autor": "gn",
-      "editora": "gfn"
-    },
-    {
-      "id": 10,
-      "name": "livro teste ",
-      "autor": "teste",
-      "editora": "teste"
-    },
-    {
-      "id": 11,
-      "name": "livos",
-      "autor": "autor",
-      "editora": "editora"
     }
   ],
   "carrinho": [
@@ -79,14 +55,6 @@
     {
       "id": 4,
       "livrosId": 2
-    },
-    {
-      "livrosId": 8,
-      "id": 5
-    },
-    {
-      "id": 6,
-      "livrosId": 10
     }
   ]
 }
