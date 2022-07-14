@@ -8,11 +8,20 @@ import axios from 'axios'
 
 export default {
   data() {
-    return {};
+    return {
+ /*     currentLivros: {
+        id: "",
+        name: "",
+        autor: "",
+        editora: "",
+      },*/
+     // carrinho:[],
+    };
   },
   computed: {
     ...mapStores(useCarrinhoStore),
     ...mapState(useCarrinhoStore, ["carrinho"]),
+  //  ...mapState(useLivrosStore, ["livros"]),
   },
   methods: {
     ...mapActions(useCarrinhoStore, ["getAllCarrinho", "deleteCarrinho",]),
@@ -41,18 +50,18 @@ export default {
 
   <body>
     <div class="row" >
-      <div class="card" v-for="livro of carrinho" :key="livro.id">
+      <div class="card" v-for="item of carrinho" :key="item.id">
         <div class="card-header">
-          <h1>{{livro.livros.name}}</h1>
+          <h1>{{item.livros.name}}</h1>
         </div>
         <div class="card-body">
           <p>
-            {{livro.livros.autor}}
+            {{item.livros.autor}}
           </p>
           <p>
-            {{livro.livros.editora}}
+            {{item.livros.editora}}
           </p>
-          <button @click="deleteItem(livro.id)" class="btn">Remover do Carrinho</button>
+          <button @click="deleteItem(item.id)" class="btn">Remover do Carrinho</button>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { mapState, mapStores, mapActions } from "pinia";
 import { useLivrosStore } from "@/stores/livros.js";
 import { useCarrinhoStore } from "@/stores/carrinho.js";
 import axios from 'axios'
+
 export default {
  
   data() {

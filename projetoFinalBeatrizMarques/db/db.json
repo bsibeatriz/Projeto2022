@@ -41,6 +41,12 @@
       "name": "tal",
       "autor": "tal",
       "editora": "tal"
+    },
+    {
+      "id": 8,
+      "name": "ferf",
+      "autor": "ef",
+      "editora": "gt"
     }
   ],
   "carrinho": [
@@ -49,12 +55,16 @@
       "livrosId": 1
     },
     {
+      "id": 2,
+      "livrosId": 3
+    },
+    {
       "id": 4,
-      "livrosId": 4
+      "livrosId": 2
     },
     {
       "id": 1,
-      "livrosId": 2
+      "livrosId": 4
     }
   ]
 }
