@@ -4,57 +4,60 @@
       "id": 1,
       "name": "Crime e Castigo",
       "autor": "Fiódor Dostoiévski",
-      "editora": "Editora 1"
+      "editora": "Editora 1",
+      "preco": "50.00"
     },
     {
       "id": 2,
       "name": "1984",
       "autor": "George Orwell",
-      "editora": "Editora 2"
+      "editora": "Editora 2",
+      "preco": "50.00"
     },
     {
       "id": 3,
       "name": "Pachinko",
       "autor": "Min Jin Lee",
-      "editora": "Editora 1"
+      "editora": "Editora 1",
+      "preco": "50.00"
     },
     {
       "id": 4,
       "name": "Frankenstein",
       "autor": "Mary Shelley",
-      "editora": "Editora 2"
+      "editora": "Editora 2",
+      "preco": "50.00"
     },
     {
       "id": 5,
-      "name": "livro 5",
-      "autor": "a",
-      "editora": "a"
+      "name": "livro 1",
+      "autor": "autor 1",
+      "editora": "editora 1",
+      "preco": "50.20"
     },
     {
       "id": 6,
-      "name": "livro 6",
-      "autor": "c",
-      "editora": "ss"
-    },
-    {
-      "id": 7,
-      "name": "livro 7",
-      "autor": "tal",
-      "editora": "tal"
+      "name": "livro 2",
+      "autor": "autor 2",
+      "editora": "editora 2",
+      "preco": "50.1"
     }
   ],
   "carrinho": [
     {
-      "id": 3,
-      "livrosId": 1
+      "id": 0,
+      "livrosId": 2,
+      "quantidade": 2
+    },
+    {
+      "id": 1,
+      "livrosId": 1,
+      "quantidade": 3
     },
     {
       "id": 2,
-      "livrosId": 3
-    },
-    {
-      "id": 4,
-      "livrosId": 2
+      "livrosId": 3,
+      "quantidade": 1
     }
   ]
 }

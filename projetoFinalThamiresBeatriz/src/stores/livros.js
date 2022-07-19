@@ -24,7 +24,7 @@ export const useLivrosStore = defineStore({
       try {
         const { data } = await axios.post( "http://localhost:4001/livros", livro);
         this.livros.push(data);
-        return Promise.resolve("Categoria adicionada com sucesso!");
+        return Promise.resolve("Livro adicionado com sucesso!");
       } catch (e) {
         console.error(e);
         return Promise.reject(e);

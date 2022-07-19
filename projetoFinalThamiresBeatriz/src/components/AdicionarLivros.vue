@@ -1,7 +1,6 @@
 <script>
 import { mapState, mapStores, mapActions } from "pinia";
 import { useLivrosStore } from "@/stores/livros.js";
-// import axios from "axios";
 
 export default {
   data() {
@@ -11,6 +10,7 @@ export default {
         name: "",
         autor: "",
         editora: "",
+        preco: "",
       },
     };
   },
@@ -29,21 +29,8 @@ export default {
         alert(e);
       }
     },
-  /*  async apagar(){
-      console.log("aaa");
-    }*/
+
     async remover(livros_id) {
-   //   console.log("re");
-      // try {
-      //   await axios.delete(`http://localhost:4001/livros/${livros_id}`);
-      //   const index = this.livros.findIndex(
-      //     (livros) => livros.id === livros_id
-      //   );
-      //   this.livros.splice(index, 1);
-      //   return Promise.resolve();
-      // } catch (e) {
-      //   return Promise.reject("Erro ao excluir");
-      // }
        try {
          const msg = await this.deleteLivros(livros_id);
          alert(msg);
@@ -72,6 +59,9 @@ export default {
     <label>Editora</label> <br />
     <input type="text" v-model="currentLivros.editora" />
     <br />
+    <label>Preço</label> <br />
+    <input type="text" v-model="currentLivros.preco" />
+    <br />
     <button @click="save">Cadastrar</button>
   </form>
   <div class="row">
@@ -86,8 +76,7 @@ export default {
         <p>
           {{ livro.editora }}
         </p>
-        <button @click="remover(livro.id)" >Ecluir Livro</button>
-        <!-- <button @click="delete livro.id" class="btn">Excluir Livro</button> -->
+        <button @click="remover(livro.id)" >Excluir Livro</button>
       </div>
     </div>
   </div>

@@ -18,7 +18,8 @@ export default {
     async deleteItem(carrinho_id) {
       try {
         await this.deleteCarrinho(carrinho_id);
-        alert("Item excluído com sucesso.");
+        alert("1 Item foi removido do carrinho.");
+        document.location.reload(true);
       } catch (e) {
         alert(e);
       }
@@ -50,7 +51,13 @@ export default {
           <p>
             {{item.livros.editora}}
           </p>
-          <button @click="deleteItem(item.id)" class="btn">Remover do Carrinho</button>
+          <p> Preço: 
+            {{item.livros.preco}}
+          </p>
+          <p>Quantidade: 
+            {{item.quantidade}}
+          </p>
+          <button @click="deleteItem(item.id)" class="btn">Remover Livro</button>
         </div>
       </div>
     </div>

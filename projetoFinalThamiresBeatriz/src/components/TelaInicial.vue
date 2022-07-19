@@ -10,6 +10,7 @@ export default {
       adiciona_carrinho: {
         id: "",
         livrosId: "",
+        quantidade: "",
       },
     };
   },
@@ -20,14 +21,16 @@ export default {
   },
   methods: {
     ...mapActions(useLivrosStore, ["getAllLivros"]),
-    ...mapActions(useCarrinhoStore, ["addCarrinho"]),
+    ...mapActions(useCarrinhoStore, ["getAllCarrinho","addCarrinho"]),
 
     async adicionar_carrinho(livro_id) {
       try {
         this.adiciona_carrinho.livrosId = livro_id;
+        this.adiciona_carrinho.quantidade = 1;
         const msg = await this.addCarrinho(this.adiciona_carrinho);
         alert(msg);
         this.currentLivros = {};
+        document.location.reload(true);
       } catch (e) {
         alert(e);
       }
@@ -36,6 +39,7 @@ export default {
   async mounted() {
     try {
       await this.getAllLivros();
+      await this.getAllCarrinho();
     } catch (e) {
       alert(e);
     }
@@ -56,6 +60,10 @@ export default {
           <p>
             {{ livro.editora }}
           </p>
+          <p>
+            {{ livro.preco }}
+          </p>
+          
           <button @click="adicionar_carrinho(livro.id)" class="btn">
             Adicionar ao Carrinho
           </button>
