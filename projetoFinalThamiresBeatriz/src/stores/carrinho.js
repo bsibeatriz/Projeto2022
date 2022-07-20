@@ -28,10 +28,10 @@ export const useCarrinhoStore = defineStore({
         const index = this.carrinho.findIndex(
           (livros) => livros.livrosId === idlivro
         );
-        //console.log(index);
+        
 
         if (index >= 0) {
-         // console.log("existe");
+       
           const dado = { quantidade: this.carrinho[index].quantidade + 1 };
           await axios.patch(`http://localhost:4001/carrinho/${index}`, dado);
           return Promise.resolve("Adicionado ao carrinho!");

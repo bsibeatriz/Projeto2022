@@ -40,7 +40,7 @@
       "name": "livro 2",
       "autor": "autor 2",
       "editora": "editora 2",
-      "preco": "65.99"
+      "preco": "87.50"
     }
   ],
   "carrinho": [
@@ -61,12 +61,12 @@
     },
     {
       "id": 3,
-      "livrosId": 5,
+      "livrosId": 6,
       "quantidade": 1
     },
     {
       "id": 4,
-      "livrosId": 6,
+      "livrosId": 5,
       "quantidade": 1
     }
   ]

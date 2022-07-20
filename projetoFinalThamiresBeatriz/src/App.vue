@@ -6,9 +6,10 @@ import { RouterLink, RouterView } from "vue-router";
 
 <template>
   <header>
-    <RouterLink to="/">Livros </RouterLink> |
-    <RouterLink to="/adicionar">Adicionar Livros </RouterLink> |
-    <RouterLink to="/carrinho">Carrinho </RouterLink> 
+    <RouterLink to="/adicionar">Admin </RouterLink> 
+    <RouterLink to="/">Livros </RouterLink>
+    <RouterLink to="/carrinho">Carrinho </RouterLink>
+    
   </header>
   <main>
     <RouterView />
@@ -24,20 +25,15 @@ header {
   font-size: 1.5em;
   display: flex;
   text-decoration:none;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 0 20px;
 }
 a{
   text-decoration: none;
   text-align: center;
 }
-.menu{
-  width:50%;
-}
-.menu2{
-  width:50%;
-  text-align:end;
-}
-.inicial{
-  display:flex;
-  flex-flow: row wrap;
-}
+
+
+
 </style>

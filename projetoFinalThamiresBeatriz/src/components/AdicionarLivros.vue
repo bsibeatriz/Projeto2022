@@ -52,7 +52,7 @@ export default {
 
 <template>
   <form class="cadastro-form">
-    <label>Livro</label> <br />
+    <label>Título</label> <br />
     <input type="text" v-model="currentLivros.name" /> <br />
     <label>Autor</label> <br />
     <input type="text" v-model="currentLivros.autor" /> <br />
@@ -115,11 +115,10 @@ export default {
 }
 
 .cadastro-form button {
-  display: flexbox;
+  
   justify-content: center;
-  align-items: center;
   height: 35px;
-  width: 30%;
+  width: 89%;
   margin-top: 2%;
   margin-bottom: 5%;
   background-color: #b17986;
@@ -133,6 +132,7 @@ export default {
   margin: auto;
   width: 50%;
 }
+
 
 .data-table {
   border-collapse: separate;

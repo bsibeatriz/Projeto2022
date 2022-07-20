@@ -78,7 +78,7 @@ export default {
     </table>
   </body>
 </template>
-<style>
+<style scoped>
 
 body {
   background: #fefefe;
