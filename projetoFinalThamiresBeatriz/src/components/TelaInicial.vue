@@ -61,7 +61,7 @@ export default {
             {{ livro.editora }}
           </p>
           <p>
-            {{ livro.preco }}
+           R$ {{ livro.preco }}
           </p>
           
           <button @click="adicionar_carrinho(livro.id)" class="btn">
@@ -97,34 +97,36 @@ body {
 }
 
 .card {
-  width: 20%;
+  width: 30%;
   background: #fff;
   border: 1px solid #ccc;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   transition: 0.3s;
 }
 
 .card-header {
   text-align: center;
-  padding: 50px 10px;
+  padding: 15px 5px;
   background: linear-gradient(to right, #b17986, #ceaba5);
   color: #fff;
 }
 
 .card-body {
-  padding: 30px 20px;
+  padding: 10px 5px;
   text-align: center;
   font-size: 18px;
 }
 
-.card-body .btn {
-  display: block;
+.card-body button {
+  display: flexbox;
   color: #fff;
   text-align: center;
   background: linear-gradient(to right, #b17986, #ceaba5);
-  margin-top: 30px;
-  text-decoration: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
   padding: 10px 5px;
+  border: 0;
+  border-radius: 15px;
 }
 
 .card:hover {

@@ -39,28 +39,43 @@ export default {
 <template>
 
   <body>
-    <div class="row" >
-      <div class="card" v-for="item of carrinho" :key="item.id">
-        <div class="card-header">
-          <h1>{{item.livros.name}}</h1>
-        </div>
-        <div class="card-body">
-          <p>
-            {{item.livros.autor}}
-          </p>
-          <p>
-            {{item.livros.editora}}
-          </p>
-          <p> Preço: 
-            {{item.livros.preco}}
-          </p>
-          <p>Quantidade: 
-            {{item.quantidade}}
-          </p>
-          <button @click="deleteItem(item.id)" class="btn">Remover Livro</button>
-        </div>
-      </div>
-    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>
+              <h2>Título</h2>
+          </th>
+          <th>
+              <h2>Autor</h2>
+          </th>
+          <th>
+              <h2>Editora</h2>
+          </th>
+          <th>
+              <h2>Preço</h2>
+          </th>
+          <th>
+              <h2>Quantidade</h2>
+          </th>
+          <th>
+            <h2>Ações</h2> 
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item of carrinho" :key="item.id">
+          <td>{{item.livros.name}}</td>
+          <td>{{item.livros.autor}}</td>
+          <td>{{item.livros.editora}}</td>
+          <td>R$ {{item.livros.preco}}</td>
+          <td>{{item.quantidade}}</td>
+          <td>
+            <button @click="deleteItem(item.id)" class="btn">Remover</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </template>
 <style>
@@ -69,56 +84,39 @@ body {
   background: #fefefe;
   font-family: sans-serif;
 }
-
-.container {
-  width: 90%;
-  margin: 50px auto;
+.data-table {
+  border-collapse: separate;
+  border-spacing: 2px;
+  border: 1px solid #ceaba5;
+  width: 100%;
 }
-.heading {
+
+th {
+  border-bottom: 2px solid #ceaba5;
   text-align: center;
-  font-size: 30px;
-  margin-bottom: 50px;
 }
 
-.row {
+td {
+  padding: 10px;
+  border: 1px solid #ceaba5;
+  text-align: center;
+}
+
+thead tr {
+  background-color: #b17986;
+  color: whitesmoke;
+}
+
+.data-table button{
+  height: 25px;
+  width: 50%;
+  background-color: transparent;
+  color: black;
+  font-size: 0.8em;
+  border-radius: 20px;
+  border: 1px solid black;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-flow: wrap;
-}
-
-.card {
-  width: 20%;
-  background: #fff;
-  border: 1px solid #ccc;
-  margin-bottom: 50px;
-  transition: 0.3s;
-}
-
-.card-header {
-  text-align: center;
-  padding: 50px 10px;
-  background: linear-gradient(to right, #b17986, #ceaba5);
-  color: #fff;
-}
-
-.card-body {
-  padding: 30px 20px;
-  text-align: center;
-  font-size: 18px;
-}
-
-.card-body .btn {
-  display: block;
-  color: #fff;
-  text-align: center;
-  background: linear-gradient(to right, #b17986, #ceaba5);
-  margin-top: 30px;
-  text-decoration: none;
-  padding: 10px 5px;
-}
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
+  justify-content: center;
+  align-items: center;
 }
 </style>
